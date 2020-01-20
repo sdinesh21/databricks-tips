@@ -28,7 +28,7 @@ def format_columns_name (dataframe):
     A dataframe with formated columns name.
   """
   column_names = get_column_names(dataframe)
-  special_characters = [['[áãàâäåæ]','[éêèęėēë]','[íîìïįī]','[óõôòöœøō]','[úüùûū]','[ç]','[ñ]','[/\-\n\r.,]','[(){};:]'],
+  special_characters = [['[áãàâäåæ]','[éêèęėēë]','[íîìïįī]','[óõôòöœøō]','[úüùûū]','[ç]','[ñ]','[/\-\n\r.,]','[(){};:º*&^%$#@!+=]'],
                         ['a','e','i','o','u','c','n','_','']]
   amount_of_types = len(special_characters[0])
   
@@ -52,7 +52,6 @@ def format_columns_name (dataframe):
       
       for index_regex in range(amount_of_types):
         column_name = re.sub(special_characters[0][index_regex], special_characters[1][index_regex], column_name) 
-      
       dataframe = dataframe.withColumnRenamed(column,column_name)
   
   return dataframe
