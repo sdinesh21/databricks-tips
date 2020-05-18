@@ -53,6 +53,6 @@ def pandas_to_spark(pandas_df):
   struct_list = []
   for column, typo in zip(columns, types): 
     struct_list.append(define_structure(column, str(typo)))
-    p_schema = StructType(struct_list)
-    spark_df = spark.createDataFrame(pandas_df, p_schema)
+  p_schema = StructType(struct_list)
+  spark_df = spark.createDataFrame(pandas_df, p_schema)
   return spark_df
